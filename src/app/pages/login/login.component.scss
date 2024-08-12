@@ -1,0 +1,26 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: var(--black);
+  h5 {
+    color: var(--primary);
+    padding-block: 0.3rem;
+  }
+  .form-container {
+    width: 360px;
+    .form-submit {
+      width: 100%;
+      border-radius: 0.5rem;
+      color: var(--blacky);
+      font-weight: 500;
+      background-color: var(--tertiary);
+      padding-block: 0.8rem;
+      box-shadow: none;
+      border: none;
+      outline: 0;
+    }
+  }
+}

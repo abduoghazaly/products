@@ -1,0 +1,34 @@
+<section class="top-bar">
+  <div class="menu-container">
+    <div class="logo">
+      <img src="assets/images/logo.svg" />
+      ClickTik
+    </div>
+    <div class="menu">
+      <a [routerLink]="['']" routerLinkActive="router-link-active"> Home </a>
+    </div>
+  </div>
+  <div class="user-container">
+    @if(userService.user().token != ''){
+    <a [routerLink]="['login']"> Login </a>
+    } @else {
+    <div class="search-container input-group">
+      <img src="assets/images/search-icon.svg" />
+      <input
+        type="text"
+        class="input-in-group"
+        placeholder="Search"
+        [(ngModel)]="productService.search"
+        (change)="search()"
+      />
+    </div>
+    <div class="cert-container">
+      <img src="assets/images/cert.svg" />
+      @if (cartService.cart().length > 0) {
+      <div class="count">{{ cartService.cart().length }}</div>
+      }
+    </div>
+    <div>{{ userService.user().firstName }}</div>
+    }
+  </div>
+</section>

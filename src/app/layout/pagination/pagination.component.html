@@ -1,0 +1,19 @@
+<div class="pagination-container">
+  @if (pages.length > 1) { @if (selectedPage > 1) {
+  <div class="item" (click)="selectPage(selectedPage - 1)">
+    <img src="assets/images/chevron.svg" class="rotate-180" alt="right" />
+  </div>
+  } @for (page of pages; track $index) {
+  <div
+    class="item"
+    [ngClass]="{ selected: selectedPage == page }"
+    (click)="selectPage(page)"
+  >
+    {{ page }}
+  </div>
+  } @if (selectedPage < pages.length ) {
+  <div class="item" (click)="selectPage(selectedPage + 1)">
+    <img src="assets/images/chevron.svg" alt="left" />
+  </div>
+  } }
+</div>

@@ -1,0 +1,17 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .company-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .login-route {
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--tertiary);
+  }
+}

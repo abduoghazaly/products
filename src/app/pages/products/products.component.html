@@ -1,0 +1,44 @@
+<section class="products-container">
+  <h1>IPhone</h1>
+  <h6>Home / Products / Smart Phones / iPhone</h6>
+
+  <div class="products-body">
+    <div class="products-category">
+      <h4>Products</h4>
+      <div class="radio-category" (click)="changeCategory('')">
+        <input
+          type="radio"
+          name="categories"
+          value=""
+          [(ngModel)]="productService.selectedCategory"
+        />
+        All
+      </div>
+      @for (category of productService.categories(); track $index) {
+      <div class="radio-category" (click)="changeCategory(category)">
+        <input
+          type="radio"
+          name="categories"
+          [value]="category"
+          [(ngModel)]="productService.selectedCategory"
+        />
+        {{ category }}
+      </div>
+      }
+    </div>
+    <div class="products">
+      <div class="product-list">
+        @for (product of productService.products(); track $index) {
+        <app-product-card [product]="product"></app-product-card>
+        }
+      </div>
+
+      <app-pagination
+        [selectedPage]="productService.page()"
+        [totalPages]="productService.totalPages"
+        (pageSelected)="changePage($event)"
+      >
+      </app-pagination>
+    </div>
+  </div>
+</section>

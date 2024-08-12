@@ -1,0 +1,40 @@
+<div class="product-card-container">
+  <img [src]="product.images[0]" [alt]="product.title" class="product-image" />
+  <div class="details">
+    <h4>{{ product.title }}</h4>
+    <p class="description">{{ product.description }}</p>
+    <p class="price-container">
+      <span class="line-throw">
+        <span class="price"> {{ product.price }} </span> USD
+      </span>
+      <span>
+        <span class="price">
+          {{ ((product.price * 100) / product.discountPercentage).toFixed(2) }}
+        </span>
+        USD
+      </span>
+    </p>
+    <p>
+      Brand: <span class="bold">{{ product.brand }}</span>
+    </p>
+    <p>
+      Category: <span class="bold">{{ product.category }}</span>
+    </p>
+    <p>
+      In Stock: <span class="bold">{{ product.stock }}</span>
+    </p>
+
+    <div class="review">
+      <img src="assets/images/star.svg" alt="star" />
+      {{ product.rating }}
+      <span class="review-count">({{ product.reviews.length }})</span>
+    </div>
+    <button
+      type="button"
+      class="add-cart-btn"
+      (click)="cartService.addProductToCart(product)"
+    >
+      ADD TO CART
+    </button>
+  </div>
+</div>
